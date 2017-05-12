@@ -80,16 +80,16 @@ def Tongqu_JWC():
             last_signendtime = s.find(',', first_signendtime)
             last_actid = s.find(',', first_actid)
             if str(nowDate) < s[first_signendtime + 17:last_signendtime] and s[first_name + 7:last_name] not in myset:
-                if url + s[first_actid + 9:last_actid - 1].encode().decode("unicode_escape") not in URLs:
+                if url + s[first_actid + 9:last_actid - 1] not in URLs:
                     print("new--->", end=' ')
                     print(count, s[first_name + 7:last_name].encode().decode("unicode_escape"))
-                    print("  ", s[first_starttime:last_starttime].encode().decode("unicode_escape"))
-                    print("  ", s[first_endtime:last_endtime].encode().decode("unicode_escape"))
-                    print("  ", s[first_signstarttime:last_signstarttime].encode().decode("unicode_escape"))
-                    print("  ", s[first_signendtime:last_signendtime].encode().decode("unicode_escape"))
-                    print("  ", url + s[first_actid + 9:last_actid - 1].encode().decode("unicode_escape"))
-                newURLs += [url + s[first_actid + 9:last_actid - 1].encode().decode("unicode_escape")]
-                myset.add(s[first_name + 7:last_name].encode().decode("unicode_escape"))
+                    print("  ", s[first_starttime:last_starttime])
+                    print("  ", s[first_endtime:last_endtime])
+                    print("  ", s[first_signstarttime:last_signstarttime])
+                    print("  ", s[first_signendtime:last_signendtime])
+                    print("  ", url + s[first_actid + 9:last_actid - 1])
+                newURLs += [url + s[first_actid + 9:last_actid - 1]]
+                myset.add(s[first_name + 7:last_name])
                 count += 1
             first_name = s.find('\"name\":', lf_name + 1)
             lf_name = first_name
